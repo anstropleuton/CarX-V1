@@ -52,3 +52,5 @@ credentials.h
 *.pem
 *.key
 .env
+
+share.zip

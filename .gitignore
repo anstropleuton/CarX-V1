@@ -1,0 +1,54 @@
+# ESP-IDF build output
+build/
+build_*/
+
+# Generated config (keep sdkconfig.defaults in git instead)
+sdkconfig
+sdkconfig.old
+
+# IDF Component Manager downloads (commit dependencies.lock, not these)
+managed_components/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors / IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+.idea/
+*.code-workspace
+.cache/
+.clangd
+compile_commands.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs, dumps, temp files
+*.log
+*.bak
+*.tmp
+*.swp
+*~
+core
+*.core
+
+# Flash / binary artifacts
+*.bin
+*.elf
+*.map
+!partitions/*.bin
+
+# Secrets (WiFi credentials, keys, certs)
+secrets.h
+credentials.h
+*.pem
+*.key
+.env

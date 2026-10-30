@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Information</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            background-color: #1a1b1e;
+            color: #e2e4e9;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 6px 0 15px 0;
+            font-size: 11px;
+        }
+
+        th,
+        td {
+            padding: 2px 4px;
+            text-align: left;
+            border: 1px solid #3a3d44;
+        }
+
+        th {
+            padding: 2px 4px;
+            background-color: #2a2d33;
+            color: #f0f1f4;
+            font-size: 11px;
+        }
+
+        h3 {
+            font-size: 14px;
+            margin: 8px 0 5px 0;
+            color: #f0f1f4;
+        }
+
+        .green {
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .blue {
+            color: #5eb0ff;
+            font-weight: bold;
+        }
+
+        .orange {
+            color: #ffa94d;
+            font-weight: bold;
+        }
+
+        .purple {
+            color: #d48ee0;
+            font-weight: bold;
+        }
+
+        .gray {
+            color: #c9ccd3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Project Information</h1>
+
+<p>
+    <strong>CarX</strong> is an autonomous rover that roams around rooms,
+    mapping the Wi-Fi signal strengths as a height map,
+    and pinpointing the source of the Wi-Fi signals.
+</p>
+
+<p>It uses several components to perform its task, namely:</p>
+
+<ul>
+    <li>ESP32 - The main board of the project</li>
+    <li>LM2596 - The power supply regulator (to emit 5V)</li>
+    <li>18650 - 4 3.7V batteries, two 2S battery packs</li>
+    <li>TB6612FNG - 2 motor drive to control motors</li>
+    <li>LM393 - 2 IR encoder to count slots and determine motor speed</li>
+    <li>Chassis & Motors - The 4WD chassis and 130 motors with TT gearbox to roam around the rooms</li>
+    <li>HC-SR04 - 3 Ultrasonic Proximity/Distance Sensor to map the room (90° apart)</li>
+    <li>MPU-6050 - The accelerometer and gyroscope to precisely determine position & orientation</li>
+    <li>QMC5883L - The magnetometer to obtain absolute heading direction</li>
+    <li>Miscellaneous Components - Resistors, Capacitors, Diodes, LEDs, Bread Board, Wires, Buttons, Switches</li>
+</ul>
+
+<p>Investment: ₹3,000 💀🙏</p>
+
+<h2>ESP32 Information</h2>
+
+<p>
+    Chip: ESP32-D0WD-V3 (revision 3.1)<br/>
+    Module: ESP32-WROOM-32E<br/>
+    Board: NodeMCU-32S ESP-32S v1.1<br/>
+    Note: Mislabeled CMD as GND on silkscreen
+</p>
+
+<h2>ESP32 Pin Layout</h2>
+
+<table>
+    <tbody>
+    <tr>
+        <td class="gray">1</td>
+        <td class="gray">2</td>
+        <td class="gray">3</td>
+        <td class="gray">4</td>
+        <td class="gray">5</td>
+        <td class="gray">6</td>
+        <td class="gray">7</td>
+        <td class="gray">8</td>
+        <td class="gray">9</td>
+        <td class="gray">10</td>
+        <td class="gray">11</td>
+        <td class="gray">12</td>
+        <td class="gray">13</td>
+        <td class="gray">14</td>
+        <td class="gray">15</td>
+        <td class="gray">16</td>
+        <td class="gray">17</td>
+        <td class="gray">18</td>
+        <td class="gray">19</td>
+    </tr>
+
+    <tr>
+        <td class="gray">5V</td>
+        <td class="purple">CMD</td>
+        <td class="purple">SD3</td>
+        <td class="purple">SD2</td>
+        <td class="green">P13</td>
+        <td class="gray">GND</td>
+        <td class="orange">P12</td>
+        <td class="green">P14</td>
+        <td class="green">P27</td>
+        <td class="green">P26</td>
+        <td class="green">P25</td>
+        <td class="green">P33</td>
+        <td class="green">P32</td>
+        <td class="blue">P35</td>
+        <td class="blue">P34</td>
+        <td class="blue">SVN</td>
+        <td class="blue">SVP</td>
+        <td class="gray">EN</td>
+        <td class="gray">3V3</td>
+    </tr>
+
+    <tr>
+        <td class="purple">CLK</td>
+        <td class="purple">SD0</td>
+        <td class="purple">SD1</td>
+        <td class="orange">P15</td>
+        <td class="orange">P2</td>
+        <td class="orange">P0</td>
+        <td class="green">P4</td>
+        <td class="green">P16</td>
+        <td class="green">P17</td>
+        <td class="orange">P5</td>
+        <td class="green">P18</td>
+        <td class="green">P19</td>
+        <td class="gray">GND</td>
+        <td class="green">P21</td>
+        <td class="purple">RX</td>
+        <td class="purple">TX</td>
+        <td class="green">P22</td>
+        <td class="green">P23</td>
+        <td class="gray">GND</td>
+    </tr>
+
+    <tr>
+        <td class="gray">1</td>
+        <td class="gray">2</td>
+        <td class="gray">3</td>
+        <td class="gray">4</td>
+        <td class="gray">5</td>
+        <td class="gray">6</td>
+        <td class="gray">7</td>
+        <td class="gray">8</td>
+        <td class="gray">9</td>
+        <td class="gray">10</td>
+        <td class="gray">11</td>
+        <td class="gray">12</td>
+        <td class="gray">13</td>
+        <td class="gray">14</td>
+        <td class="gray">15</td>
+        <td class="gray">16</td>
+        <td class="gray">17</td>
+        <td class="gray">18</td>
+        <td class="gray">19</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>ESP32 GPIO Details</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Pin</th>
+        <th>Label</th>
+        <th>GPIO</th>
+        <th>Category</th>
+        <th>Features</th>
+        <th>Notes</th>
+        <th>Usage</th>
+    </tr>
+    </thead>
+
+    <!-- @formatter:off -->
+    <tbody>
+    <tr><td>1</td><td class="gray">5V</td><td>—</td><td class="gray">Power</td><td>—</td><td>5V supply</td><td>✕</td></tr>
+    <tr><td>2</td><td class="purple">CMD</td><td>11</td><td class="purple">Special</td><td>SPI flash — CMD/CSC</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>3</td><td class="purple">SD3</td><td>10</td><td class="purple">Special</td><td>SPI flash — SD3</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>4</td><td class="purple">SD2</td><td>9</td><td class="purple">Special</td><td>SPI flash — SD2</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>5</td><td class="green">P13</td><td>13</td><td class="green">General</td><td>ADC2-4, Touch4, HSPI_MOSI, RTC_GPIO14</td><td>—</td><td>Proximity Trigger Right</td></tr>
+    <tr><td>6</td><td class="gray">GND</td><td>—</td><td class="gray">Power</td><td>—</td><td>Ground</td><td>✕</td></tr>
+    <tr><td>7</td><td class="orange">P12</td><td>12</td><td class="orange">Strapping</td><td>ADC2-5, Touch5, HSPI_MISO (MTDI), RTC_GPIO15</td><td>Must read LOW at boot</td><td>Motor Battery Status (Blue)</td></tr>
+    <tr><td>8</td><td class="green">P14</td><td>14</td><td class="green">General</td><td>ADC2-6, Touch6, HSPI_CLK, RTC_GPIO16</td><td>—</td><td>Speed Encoder Right</td></tr>
+    <tr><td>9</td><td class="green">P27</td><td>27</td><td class="green">General</td><td>ADC2-7, Touch7, RTC_GPIO17</td><td>—</td><td>Speed Encoder Left</td></tr>
+    <tr><td>10</td><td class="green">P26</td><td>26</td><td class="green">General</td><td>ADC2-9, DAC2, RTC_GPIO7</td><td>—</td><td>Motor Right Forward</td></tr>
+    <tr><td>11</td><td class="green">P25</td><td>25</td><td class="green">General</td><td>ADC2-8, DAC1, RTC_GPIO6</td><td>—</td><td>Motor Right Reverse</td></tr>
+    <tr><td>12</td><td class="green">P33</td><td>33</td><td class="green">General</td><td>ADC1-5, Touch8, RTC_GPIO8</td><td>—</td><td>Motor Left Reverse</td></tr>
+    <tr><td>13</td><td class="green">P32</td><td>32</td><td class="green">General</td><td>ADC1-4, Touch9, RTC_GPIO9</td><td>—</td><td>Motor Left Forward</td></tr>
+    <tr><td>14</td><td class="blue">P35</td><td>35</td><td class="blue">Input</td><td>ADC1-7, RTC_GPIO5</td><td>No pull-up/down</td><td>Main Battery Voltage</td></tr>
+    <tr><td>15</td><td class="blue">P34</td><td>34</td><td class="blue">Input</td><td>ADC1-6, RTC_GPIO4</td><td>No pull-up/down</td><td>Motor Battery Voltage</td></tr>
+    <tr><td>16</td><td class="blue">SVN</td><td>39</td><td class="blue">Input</td><td>ADC1-3, RTC_GPIO3</td><td>No pull-up/down</td><td>Primary button</td></tr>
+    <tr><td>17</td><td class="blue">SVP</td><td>36</td><td class="blue">Input</td><td>ADC1-0, RTC_GPIO0</td><td>No pull-up/down</td><td>Secondary button</td></tr>
+    <tr><td>18</td><td class="gray">EN</td><td>—</td><td class="gray">Power</td><td>—</td><td>Chip enable</td><td>✕</td></tr>
+    <tr><td>19</td><td class="gray">3V3</td><td>—</td><td class="gray">Power</td><td>—</td><td>3.3V regulated output</td><td>✕</td></tr>
+
+    <tr><td>1</td><td class="purple">CLK</td><td>6</td><td class="purple">Special</td><td>SPI flash clock</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>2</td><td class="purple">SD0</td><td>7</td><td class="purple">Special</td><td>SPI flash — SD0</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>3</td><td class="purple">SD1</td><td>8</td><td class="purple">Special</td><td>SPI flash — SD1</td><td>Avoid using as GPIO</td><td>✕</td></tr>
+    <tr><td>4</td><td class="orange">P15</td><td>15</td><td class="orange">Strapping</td><td>ADC2-3, Touch3, HSPI_CS0 (MTDO), RTC_GPIO13</td><td>Must read HIGH at boot</td><td>Main Battery Status (Green)</td></tr>
+    <tr><td>5</td><td class="orange">P2</td><td>2</td><td class="orange">Strapping</td><td>ADC2-2, Touch2, RTC_GPIO12</td><td>Onboard LED</td><td>Heartbeat LED</td></tr>
+    <tr><td>6</td><td class="orange">P0</td><td>0</td><td class="orange">Strapping</td><td>ADC2-1, Touch1, RTC_GPIO11</td><td>BOOT button</td><td>Tertiary button</td></tr>
+    <tr><td>7</td><td class="green">P4</td><td>4</td><td class="green">General</td><td>ADC2-0, Touch0, RTC_GPIO10</td><td>—</td><td>Button Status LED (Red)</td></tr>
+    <tr><td>8</td><td class="green">P16</td><td>16</td><td class="green">General</td><td>UART2 RX (default)</td><td>—</td><td>Proximity Trigger Left</td></tr>
+    <tr><td>9</td><td class="green">P17</td><td>17</td><td class="green">General</td><td>UART2 TX (default)</td><td>—</td><td>Proximity Trigger Front</td></tr>
+    <tr><td>10</td><td class="orange">P5</td><td>5</td><td class="orange">Strapping</td><td>VSPI_CS0</td><td>Must read HIGH at boot</td><td>Battery Low Status (Red)</td></tr>
+    <tr><td>11</td><td class="green">P18</td><td>18</td><td class="green">General</td><td>VSPI_CLK</td><td>—</td><td>Proximity Echo Right</td></tr>
+    <tr><td>12</td><td class="green">P19</td><td>19</td><td class="green">General</td><td>VSPI_MISO</td><td>—</td><td>Proximity Echo Left</td></tr>
+    <tr><td>13</td><td class="gray">GND</td><td>—</td><td class="gray">Power</td><td>—</td><td>Ground</td><td>✕</td></tr>
+    <tr><td>14</td><td class="green">P21</td><td>21</td><td class="green">General</td><td>I2C SDA (default)</td><td>—</td><td>I2C SDA</td></tr>
+    <tr><td>15</td><td class="purple">RX</td><td>3</td><td class="purple">Special</td><td>UART0 RX</td><td>Serial monitor / flashing</td><td>✕</td></tr>
+    <tr><td>16</td><td class="purple">TX</td><td>1</td><td class="purple">Special</td><td>UART0 TX</td><td>Serial monitor / flashing</td><td>✕</td></tr>
+    <tr><td>17</td><td class="green">P22</td><td>22</td><td class="green">General</td><td>I2C SCL (default)</td><td>—</td><td>I2C SCL</td></tr>
+    <tr><td>18</td><td class="green">P23</td><td>23</td><td class="green">General</td><td>VSPI_MOSI</td><td>—</td><td>Proximity Echo Front</td></tr>
+    <tr><td>19</td><td class="gray">GND</td><td>—</td><td class="gray">Power</td><td>—</td><td>Ground</td><td>✕</td></tr>
+    </tbody>
+    <!-- @formatter:on -->
+</table>
+
+<h2>HMI</h2>
+<h3>Three buttons:</h3>
+<ul>
+    <li>Primary</li>
+    <li>Secondary</li>
+    <li>Tertiary</li>
+</ul>
+<p>The primary and secondary buttons are close to each other, while the tertiary button is grouped separately. It is
+    also smaller.</p>
+<h3>Two LEDs:</h3>
+<ul>
+    <li>General Status LED: Red, Green, Blue</li>
+    <li>Input Status LED: Red</li>
+</ul>
+<p>The GSLED has RGB channels in one LED unit, with ability to control brightness of each channel programmatically.</p>
+<p>The ISLED has only R channel programmatically configurable. Its G and B channels are physically wired to the
+    primary and secondary buttons.</p>
+<h3>Input Methods:</h3>
+<ol>
+    <li>
+        Normal Method:
+        <ul>
+            <li>Primary Button: Commit.</li>
+            <li>Secondary Button: Cycle forward through a list or increment value, with wrap-around.</li>
+        </ul>
+    </li>
+    <li>
+        Adjustment Method:
+        <ul>
+            <li>Primary Button: Move forward in a list or increment value, without wrap-around (clamping).</li>
+            <li>Secondary Button: Move backward in a list or increment value, without wrap-around (clamping).</li>
+        </ul>
+    </li>
+</ol>
+<p>Input methods are configured by pressing the tertiary button, which toggles between Normal Method (default) and
+    Adjustment Method.</p>
+<h3>Hue Display:</h3>
+<p>The current index or value is displayed on GSLED by fixing the saturation and brightness, and adjusting the hue based
+    on the index and total.</p>
+<h3>R Display:</h3>
+<p>The current index or value is displayed on ISLED by adjusting the baseline brightness on R channel based on the index
+    and total.</p>
+<h3>Blink:</h3>
+<p>ISLED uses blink code to denote gesture.</p>
+<ul>
+    <li>Blink 1: 300ms on, return to baseline.</li>
+    <li>Blink 2: 200ms on 200ms off 200ms on, return to baseline.</li>
+    <li>Blink 3: 150ms on 150ms off 150ms on 150ms off 150ms on, return to baseline.</li>
+    <li>Blink 1-long: 500ms on, return to baseline.</li>
+</ul>
+<p>On state: 100% if baseline < 38.197%, else 0%</p>
+<p>Off state: 0% if baseline >= 38.197%, else 100%</p>
+<h3>Gestures:</h3>
+<ul>
+    <li>
+        Cycle:
+        <ul>
+            <li>Normal Method: Secondary button cycles (wrapping).</li>
+            <li>Adjustment Method: Primary and secondary buttons moves (clamping).</li>
+        </ul>
+        Holding button repeats (4 steps/s) after long-press (within 400ms).
+        ISLED blink: 1 on step, 2 on wrap-around or clamp.
+    </li>
+    <li>
+        Back: Tertiary button goes back a level.
+        ISLED blink: 3.
+    </li>
+    <li>
+        Commit (Only on Normal Method): Primary button commits.
+        ISLED blink: 1.
+    </li>
+    <li>
+        Root: Tertiary button double-press (within 400ms) discards changes (if any) and goes to Home menu, page 0.
+        ISLED blink: 3.
+    </li>
+    <li>
+        Toggle Input Method: Tertiary button long-press (within 400ms) toggles input method.
+        ISLED blink: 1-long.
+    </li>
+</ul>
+<h3>Navigation:</h3>
+<img alt="HMI Navigation Diagram" src="hmi_nav.svg" style="width: 90%">
+<ul>
+    <li>
+        Home: List of status pages.
+        <ul>
+            <li>Cycle: Cycle through pages.</li>
+            <li>Back: Go to Page 0.</li>
+            <li>Back on Page 0: Pause & Resume whole system.</li>
+            <li>Commit: Go to Action Selection menu.</li>
+        </ul>
+        ISLED uses R Display.<br>
+        Page 0 is root.
+    </li>
+    <li>
+        Action Selection: List of action pages.
+        <ul>
+            <li>Cycle: Cycle through pages.</li>
+            <li>Back: Go to Home menu.</li>
+            <li>Commit: Go to either Value Mode menu or Event Mode menu.</li>
+        </ul>
+        GSLED uses Hue Display.
+    </li>
+    <li>
+        Value Mode: Input value in range.
+        <ul>
+            <li>Cycle: Cycle through value in range.</li>
+            <li>Back: Revert changes and go to Action Selection menu.</li>
+            <li>Commit: Save changes and go to either Reports menu or Action Selection menu.</li>
+        </ul>
+        ISLED uses 50% baseline.<br>
+        GSLED uses Hue Display.
+    </li>
+    <li>
+        Event Mode: Action performance.
+        <ul>
+            <li>Cycle: Does nothing.</li>
+            <li>Back: Does nothing.</li>
+            <li>Commit: Save changes and go to either Reports menu or Action Selection menu.</li>
+        </ul>
+        Busy wait phase.<br>
+        ISLED uses 50% baseline.<br>
+        GSLED uses Hue Display as loading indicator by default.
+    </li>
+    <li>
+        Reports: List of action results.
+        <ul>
+            <li>Cycle: Cycle through results.</li>
+            <li>Back: Go to either Value Mode menu or Event Mode menu.</li>
+            <li>Commit: Go to Action Selection menu.</li>
+        </ul>
+        ISLED uses R Display.
+    </li>
+</ul>
+<h3>Pages:</h3>
+<ul>
+    <li>
+        Home:
+        <ol start="0">
+            <li>
+                Battery Status: GSLED:
+                <ul>
+                    <li>R = 1 - min(bat1, bat2)</li>
+                    <li>G = bat1</li>
+                    <li>B = bat2</li>
+                </ul>
+            </li>
+            <li>
+                Proximity Status: GSLED:
+                <ul>
+                    <li>R = Front</li>
+                    <li>G = Left</li>
+                    <li>B = Right</li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+    <li>
+        Action:
+        <ol start="0">
+            <li>Motor Trim</li>
+        </ol>
+    </li>
+</ul>
+</body>
+</html>

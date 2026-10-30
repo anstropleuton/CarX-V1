@@ -1,0 +1,6 @@
+{
+  "cmake.copyCompileCommands": "${workspaceRoot}/build/compile_commands.json",
+  "clangd.arguments": [
+    "--query-driver=D:/Apps/Portables/ESP/Tools/tools/xtensa-esp-elf/**/xtensa-esp32-elf-*"
+  ]
+}
